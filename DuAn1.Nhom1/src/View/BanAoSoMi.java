@@ -343,6 +343,9 @@ public class BanAoSoMi extends javax.swing.JFrame {
         lblSOHANGTHANG = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
         cbbLOAITHOIGIAN = new javax.swing.JComboBox<>();
+        NgayBatDau = new com.toedter.calendar.JDateChooser();
+        NgayKetThuc = new com.toedter.calendar.JDateChooser();
+        btnTIMLOAITIME = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -1229,7 +1232,7 @@ public class BanAoSoMi extends javax.swing.JFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane13)
                     .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2702,7 +2705,18 @@ public class BanAoSoMi extends javax.swing.JFrame {
 
         jLabel44.setText("Loại thời gian ");
 
-        cbbLOAITHOIGIAN.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hôm nay", "Theo ngày " }));
+        cbbLOAITHOIGIAN.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Theo ngày", "Hôm nay" }));
+        cbbLOAITHOIGIAN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbbLOAITHOIGIANActionPerformed(evt);
+            }
+        });
+
+        NgayBatDau.setDateFormatString("yyyy-MM-dd");
+
+        NgayKetThuc.setDateFormatString("yyyy-MM-dd");
+
+        btnTIMLOAITIME.setText("Tìm");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -2717,14 +2731,20 @@ public class BanAoSoMi extends javax.swing.JFrame {
                         .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(37, 37, 37)
                         .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cbbLOAITHOIGIAN, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(47, 47, 47)
+                        .addComponent(NgayBatDau, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)
+                        .addComponent(NgayKetThuc, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
+                        .addComponent(btnTIMLOAITIME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(194, 194, 194))))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2736,10 +2756,15 @@ public class BanAoSoMi extends javax.swing.JFrame {
                     .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel44)
-                    .addComponent(cbbLOAITHOIGIAN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel44)
+                            .addComponent(cbbLOAITHOIGIAN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(NgayBatDau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(NgayKetThuc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnTIMLOAITIME))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout containerLayout = new javax.swing.GroupLayout(container);
@@ -2751,7 +2776,7 @@ public class BanAoSoMi extends javax.swing.JFrame {
                 .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(home, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(home, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         containerLayout.setVerticalGroup(
@@ -2818,6 +2843,7 @@ public class BanAoSoMi extends javax.swing.JFrame {
     }//GEN-LAST:event_mnVCMouseClicked
 
     private void mnTKhoanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnTKhoanMouseClicked
+        new DoiMatKhauJdialog1(this, true).setVisible(true);
 
     }//GEN-LAST:event_mnTKhoanMouseClicked
 
@@ -3379,6 +3405,19 @@ public class BanAoSoMi extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtLOAISPActionPerformed
 
+    private void cbbLOAITHOIGIANActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbLOAITHOIGIANActionPerformed
+        String selectedOption = (String) cbbLOAITHOIGIAN.getSelectedItem();
+        if (selectedOption.equals("Theo ngày")) {
+            NgayBatDau.setVisible(true);
+            NgayKetThuc.setVisible(true);
+            btnTIMLOAITIME.setVisible(true);
+        } else if (selectedOption.equals("Hôm nay")) {
+            NgayBatDau.setVisible(false);
+            NgayKetThuc.setVisible(false);
+            btnTIMLOAITIME.setVisible(false);
+        }
+    }//GEN-LAST:event_cbbLOAITHOIGIANActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -3405,10 +3444,13 @@ public class BanAoSoMi extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser NgayBatDau;
+    private com.toedter.calendar.JDateChooser NgayKetThuc;
     private javax.swing.JButton btnAn;
     private javax.swing.JButton btnHuy;
     private javax.swing.JButton btnSua1;
     private javax.swing.JButton btnSuaTTSP;
+    private javax.swing.JButton btnTIMLOAITIME;
     private javax.swing.JButton btnThanhToan;
     private javax.swing.JButton btnThem1;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -4960,6 +5002,7 @@ public class BanAoSoMi extends javax.swing.JFrame {
             this.Table();
             this.clearFormADKM();
             MsgBox.alert(this, "Cập nhật thành công!");
+            fillTableDSSP(listAllSP);
         } catch (Exception e) {
             e.printStackTrace(); // Xử lý hoặc báo lỗi khi có lỗi xảy ra
             MsgBox.alert(this, "Cập nhật thất bại! Lỗi: " + e.getMessage());
@@ -4975,41 +5018,41 @@ public class BanAoSoMi extends javax.swing.JFrame {
             tongDoanhThuN += doanhThuN;
         }
         // Hiển thị tổng doanh thu lên lblDTNam
-        lblDTNam.setText(String.valueOf(tongDoanhThuN+" $"));
-        
+        lblDTNam.setText(String.valueOf(tongDoanhThuN + " $"));
+
         List<Integer> thang = doanhThu.getDoanhThuThang();
         int tongDoanhThuT = 0;
         for (Integer doanhThuT : thang) {
             tongDoanhThuT += doanhThuT;
         }
-        lblDTThang.setText(String.valueOf(tongDoanhThuT+" $"));
+        lblDTThang.setText(String.valueOf(tongDoanhThuT + " $"));
 
         List<Integer> shnam = doanhThu.getSOHANGNAM();
         int tongshnam = 0;
         for (Integer doanhThuT : shnam) {
             tongshnam += doanhThuT;
         }
-        lblSOHANGNAM.setText(String.valueOf("Số lượng hàng: "+tongshnam));
-        
+        lblSOHANGNAM.setText(String.valueOf("Số lượng hàng: " + tongshnam));
+
         List<Integer> shthang = doanhThu.getSOHANGTHANG();
         int tongshthang = 0;
         for (Integer doanhThuT : shthang) {
             tongshthang += doanhThuT;
         }
-        lblSOHANGTHANG.setText(String.valueOf("Số lượng hàng: "+tongshthang));
-        
+        lblSOHANGTHANG.setText(String.valueOf("Số lượng hàng: " + tongshthang));
+
         List<Integer> hdnam = doanhThu.getHOADONNAM();
         int tonghdnam = 0;
         for (Integer doanhThuT : hdnam) {
             tonghdnam += doanhThuT;
         }
-        lblHOADONNAM.setText(String.valueOf("Số lượng hàng: "+tonghdnam));
-        
+        lblHOADONNAM.setText(String.valueOf("Số lượng hàng: " + tonghdnam));
+
         List<Integer> hdthang = doanhThu.getHOADONTHANG();
         int tonghdthang = 0;
         for (Integer doanhThuT : hdthang) {
             tonghdthang += doanhThuT;
         }
-        lblHOADONTHANG.setText(String.valueOf("Số lượng hàng: "+tonghdthang));
+        lblHOADONTHANG.setText(String.valueOf("Số lượng hàng: " + tonghdthang));
     }
 }
