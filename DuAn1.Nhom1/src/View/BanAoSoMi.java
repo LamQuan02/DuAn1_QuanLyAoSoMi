@@ -187,7 +187,7 @@ public class BanAoSoMi extends javax.swing.JFrame {
         tblChatLieu = new javax.swing.JTable();
         tenloaisanpham = new javax.swing.JScrollPane();
         tblTenLoaiSanPham = new javax.swing.JTable();
-        hoadon = new javax.swing.JPanel();
+        banhang = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblDanhSachHoaDon = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -1258,7 +1258,7 @@ public class BanAoSoMi extends javax.swing.JFrame {
 
         home.add(sanpham, "card3");
 
-        hoadon.setPreferredSize(new java.awt.Dimension(1012, 450));
+        banhang.setPreferredSize(new java.awt.Dimension(1012, 450));
 
         jScrollPane3.setBorder(javax.swing.BorderFactory.createTitledBorder("Danh sách hóa đơn"));
 
@@ -1538,14 +1538,14 @@ public class BanAoSoMi extends javax.swing.JFrame {
 
         jLabel4.setText("Tìm sản phẩm");
 
-        javax.swing.GroupLayout hoadonLayout = new javax.swing.GroupLayout(hoadon);
-        hoadon.setLayout(hoadonLayout);
-        hoadonLayout.setHorizontalGroup(
-            hoadonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(hoadonLayout.createSequentialGroup()
-                .addGroup(hoadonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout banhangLayout = new javax.swing.GroupLayout(banhang);
+        banhang.setLayout(banhangLayout);
+        banhangLayout.setHorizontalGroup(
+            banhangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(banhangLayout.createSequentialGroup()
+                .addGroup(banhangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
-                    .addGroup(hoadonLayout.createSequentialGroup()
+                    .addGroup(banhangLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(txtTimkiem, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -1558,14 +1558,14 @@ public class BanAoSoMi extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        hoadonLayout.setVerticalGroup(
-            hoadonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(hoadonLayout.createSequentialGroup()
+        banhangLayout.setVerticalGroup(
+            banhangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(banhangLayout.createSequentialGroup()
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(hoadonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(banhangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtTimkiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2)
                     .addComponent(jLabel4))
@@ -1574,7 +1574,7 @@ public class BanAoSoMi extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        home.add(hoadon, "card4");
+        home.add(banhang, "card4");
 
         jScrollPane18.setBorder(javax.swing.BorderFactory.createTitledBorder("Danh sách khuyến mại"));
         jScrollPane18.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2751,7 +2751,7 @@ public class BanAoSoMi extends javax.swing.JFrame {
                 .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(home, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(home, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         containerLayout.setVerticalGroup(
@@ -2780,7 +2780,7 @@ public class BanAoSoMi extends javax.swing.JFrame {
     private void mnTKMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnTKMouseClicked
         thongke.setVisible(true);
         sanpham.setVisible(false);
-        hoadon.setVisible(false);
+        banhang.setVisible(false);
         voucher.setVisible(false);
         taikhoan.setVisible(false);
         nhanvien.setVisible(false);
@@ -2790,7 +2790,7 @@ public class BanAoSoMi extends javax.swing.JFrame {
     private void mnSPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnSPMouseClicked
         thongke.setVisible(false);
         sanpham.setVisible(true);
-        hoadon.setVisible(false);
+        banhang.setVisible(false);
         voucher.setVisible(false);
         taikhoan.setVisible(false);
         nhanvien.setVisible(false);
@@ -2800,7 +2800,7 @@ public class BanAoSoMi extends javax.swing.JFrame {
     private void mnHDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnHDMouseClicked
         thongke.setVisible(false);
         sanpham.setVisible(false);
-        hoadon.setVisible(true);
+        banhang.setVisible(true);
         voucher.setVisible(false);
         taikhoan.setVisible(false);
         nhanvien.setVisible(false);
@@ -2810,7 +2810,7 @@ public class BanAoSoMi extends javax.swing.JFrame {
     private void mnVCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnVCMouseClicked
         thongke.setVisible(false);
         sanpham.setVisible(false);
-        hoadon.setVisible(false);
+        banhang.setVisible(false);
         voucher.setVisible(true);
         taikhoan.setVisible(false);
         nhanvien.setVisible(false);
@@ -2818,7 +2818,7 @@ public class BanAoSoMi extends javax.swing.JFrame {
     }//GEN-LAST:event_mnVCMouseClicked
 
     private void mnTKhoanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnTKhoanMouseClicked
-
+        new DoiMatKhauJdialog(this, true).setVisible(true);
     }//GEN-LAST:event_mnTKhoanMouseClicked
 
     private void tblTaiKhoanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTaiKhoanMouseClicked
@@ -2841,7 +2841,7 @@ public class BanAoSoMi extends javax.swing.JFrame {
     private void mnLSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnLSMouseClicked
         thongke.setVisible(false);
         sanpham.setVisible(false);
-        hoadon.setVisible(false);
+        banhang.setVisible(false);
         voucher.setVisible(false);
         taikhoan.setVisible(false);
         nhanvien.setVisible(false);
@@ -2851,7 +2851,7 @@ public class BanAoSoMi extends javax.swing.JFrame {
     private void mnNVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnNVMouseClicked
         thongke.setVisible(false);
         sanpham.setVisible(false);
-        hoadon.setVisible(false);
+        banhang.setVisible(false);
         voucher.setVisible(false);
         taikhoan.setVisible(false);
         nhanvien.setVisible(true);
@@ -3240,7 +3240,7 @@ public class BanAoSoMi extends javax.swing.JFrame {
     private void mnTKhoan1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnTKhoan1MouseClicked
         thongke.setVisible(false);
         sanpham.setVisible(false);
-        hoadon.setVisible(false);
+        banhang.setVisible(false);
         voucher.setVisible(false);
         taikhoan.setVisible(true);
         nhanvien.setVisible(false);
@@ -3405,6 +3405,7 @@ public class BanAoSoMi extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel banhang;
     private javax.swing.JButton btnAn;
     private javax.swing.JButton btnHuy;
     private javax.swing.JButton btnSua1;
@@ -3427,7 +3428,6 @@ public class BanAoSoMi extends javax.swing.JFrame {
     private javax.swing.JPanel container;
     private com.toedter.calendar.JDateChooser dateNgayBD;
     private com.toedter.calendar.JDateChooser dateNgayKT;
-    private javax.swing.JPanel hoadon;
     private javax.swing.JPanel home;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
