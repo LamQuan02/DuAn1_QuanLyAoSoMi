@@ -228,7 +228,7 @@ public class QuenMKJdialog extends javax.swing.JDialog {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
+        dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void txtEmailQMKFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailQMKFocusGained

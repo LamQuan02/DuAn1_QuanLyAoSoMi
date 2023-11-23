@@ -112,7 +112,7 @@ public class BanAoSoMi extends javax.swing.JFrame {
         mnSP = new javax.swing.JLabel();
         mnHD = new javax.swing.JLabel();
         mnVC = new javax.swing.JLabel();
-        mnTKhoan = new javax.swing.JLabel();
+        mnDoiMatKhau = new javax.swing.JLabel();
         mnThoat = new javax.swing.JLabel();
         mnLS = new javax.swing.JLabel();
         mnNV = new javax.swing.JLabel();
@@ -419,11 +419,11 @@ public class BanAoSoMi extends javax.swing.JFrame {
             }
         });
 
-        mnTKhoan.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        mnTKhoan.setText("          Đổi mật khẩu");
-        mnTKhoan.addMouseListener(new java.awt.event.MouseAdapter() {
+        mnDoiMatKhau.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        mnDoiMatKhau.setText("          Đổi mật khẩu");
+        mnDoiMatKhau.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mnTKhoanMouseClicked(evt);
+                mnDoiMatKhauMouseClicked(evt);
             }
         });
 
@@ -470,7 +470,7 @@ public class BanAoSoMi extends javax.swing.JFrame {
             .addComponent(mnSP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(mnHD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(mnVC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(mnTKhoan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(mnDoiMatKhau, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(menuLayout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(jLabel1)
@@ -500,7 +500,7 @@ public class BanAoSoMi extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(mnTKhoan1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(mnTKhoan, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(mnDoiMatKhau, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(mnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31))
@@ -2817,9 +2817,9 @@ public class BanAoSoMi extends javax.swing.JFrame {
         lichsu.setVisible(false);
     }//GEN-LAST:event_mnVCMouseClicked
 
-    private void mnTKhoanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnTKhoanMouseClicked
+    private void mnDoiMatKhauMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnDoiMatKhauMouseClicked
         new DoiMatKhauJdialog(this, true).setVisible(true);
-    }//GEN-LAST:event_mnTKhoanMouseClicked
+    }//GEN-LAST:event_mnDoiMatKhauMouseClicked
 
     private void tblTaiKhoanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTaiKhoanMouseClicked
         int row = tblTaiKhoan.getSelectedRow();
@@ -3562,12 +3562,12 @@ public class BanAoSoMi extends javax.swing.JFrame {
     private javax.swing.JPanel lichsu;
     private javax.swing.JScrollPane mausac;
     private javax.swing.JPanel menu;
+    private javax.swing.JLabel mnDoiMatKhau;
     private javax.swing.JLabel mnHD;
     private javax.swing.JLabel mnLS;
     private javax.swing.JLabel mnNV;
     private javax.swing.JLabel mnSP;
     private javax.swing.JLabel mnTK;
-    private javax.swing.JLabel mnTKhoan;
     private javax.swing.JLabel mnTKhoan1;
     private javax.swing.JLabel mnThoat;
     private javax.swing.JLabel mnVC;
