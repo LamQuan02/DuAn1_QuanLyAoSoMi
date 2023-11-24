@@ -5056,4 +5056,6 @@ public class BanAoSoMi extends javax.swing.JFrame {
         }
         lblHOADONTHANG.setText(String.valueOf("Số lượng hàng: " + tonghdthang));
     }
+    ////////////////////////// CÁC CHỨC NĂNG ỔN HẾT DỒI NHÉ ////////////////////////////////////
+    
 }
