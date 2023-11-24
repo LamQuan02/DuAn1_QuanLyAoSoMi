@@ -8,6 +8,8 @@ import java.util.List;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class ThongKeService {
 
@@ -180,5 +182,147 @@ public class ThongKeService {
         }
         return doanhThuThang;
     }
+///////////////////////////////////////////////////////////////////////////////////////
 
+    public List<Integer> getDOANHTHUNGAY() {
+        List<Integer> doanhTHUNGAY = new ArrayList<>();
+
+        try {
+            Connection connection = Getconnection.getConnection();
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT DoanhThu FROM DoanhThuVaDonHangHomNay WHERE CONVERT(DATE, NgayLap) = CONVERT(DATE, GETDATE())");
+            while (rs.next()) {
+                doanhTHUNGAY.add(rs.getInt("DoanhThu"));
+            }
+            rs.close();
+            stmt.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return doanhTHUNGAY;
+    }
+
+    public List<Integer> getDONHANGNGAY() {
+        List<Integer> doanhTHUNGAY = new ArrayList<>();
+
+        try {
+            Connection connection = Getconnection.getConnection();
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT COUNT(*) AS SoHoaDon FROM HoaDon WHERE CONVERT(DATE, NgayLap) = CONVERT(DATE, GETDATE())");
+            while (rs.next()) {
+                doanhTHUNGAY.add(rs.getInt("SoHoaDon"));
+            }
+            rs.close();
+            stmt.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return doanhTHUNGAY;
+    }
+
+    public List<Integer> getSOLUONGNGAY() {
+        List<Integer> doanhThuThang = new ArrayList<>();
+
+        try {
+            Connection connection = Getconnection.getConnection();
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT SoLuongBan FROM DoanhThuVaDonHangHomNay WHERE CONVERT(DATE, NgayLap) = CONVERT(DATE, GETDATE())");
+            while (rs.next()) {
+                doanhThuThang.add(rs.getInt("SoLuongBan"));
+            }
+            rs.close();
+            stmt.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return doanhThuThang;
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////
+    public List<Integer> getDOANHTHUNGAYTIM(Date startDate, Date endDate) {
+        List<Integer> doanhTHUNGAY = new ArrayList<>();
+
+        try {
+            Connection connection = Getconnection.getConnection();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+            String startDateStr = sdf.format(startDate);
+            String endDateStr = sdf.format(endDate);
+
+            String query = "SELECT DoanhThu FROM DoanhThuKhiTim WHERE CONVERT(DATE, NgayTN) BETWEEN '" + startDateStr + "' AND '" + endDateStr + "'";
+
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+
+            while (rs.next()) {
+                doanhTHUNGAY.add(rs.getInt("DoanhThu"));
+            }
+
+            rs.close();
+            stmt.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return doanhTHUNGAY;
+    }
+
+    public List<Integer> getDONHANGNGAYTIM(Date startDate, Date endDate) {
+        List<Integer> doanhTHUNGAY = new ArrayList<>();
+
+        try {
+            Connection connection = Getconnection.getConnection();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+            String startDateStr = sdf.format(startDate);
+            String endDateStr = sdf.format(endDate);
+
+            String query = "SELECT COUNT(*) AS SoHoaDon FROM HoaDon WHERE CONVERT(DATE, NgayLap) BETWEEN '" + startDateStr + "' AND '" + endDateStr + "'";
+
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+
+            while (rs.next()) {
+                doanhTHUNGAY.add(rs.getInt("SoHoaDon"));
+            }
+
+            rs.close();
+            stmt.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return doanhTHUNGAY;
+    }
+
+    public List<Integer> getSOLUONGNGAYTIM(Date startDate, Date endDate) {
+        List<Integer> doanhThuThang = new ArrayList<>();
+
+        try {
+            Connection connection = Getconnection.getConnection();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+            String startDateStr = sdf.format(startDate);
+            String endDateStr = sdf.format(endDate);
+
+            String query = "SELECT SoLuongBan FROM DoanhThuKhiTim WHERE CONVERT(DATE, NgayTN) BETWEEN '" + startDateStr + "' AND '" + endDateStr + "'";
+
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+
+            while (rs.next()) {
+                doanhThuThang.add(rs.getInt("SoLuongBan"));
+            }
+
+            rs.close();
+            stmt.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return doanhThuThang;
+    }
 }

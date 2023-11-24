@@ -250,7 +250,7 @@ SELECT
     SUM(HDCT.SoLuong) AS SoLuongBan,
     SUM(HDCT.SoLuong * HDCT.GiaTien) AS TongGiaBan,
     SUM(ISNULL(KM.GiamGia, 0) * HDCT.SoLuong) AS TongGiaGiamGia,
-    SUM(HDCT.SoLuong * HDCT.GiaTien) + SUM(ISNULL(KM.GiamGia, 0) * HDCT.SoLuong) AS DoanhThu
+    SUM(HDCT.SoLuong * HDCT.GiaTien) - SUM(ISNULL(KM.GiamGia, 0) * HDCT.SoLuong) AS DoanhThu
 FROM
     HoaDon HD
 INNER JOIN
@@ -274,3 +274,56 @@ GROUP BY
 	UPDATE SanPhamChiTiet SET KhuyenMai = null WHERE Loai = 5
 
 ---	select * from taikhoan
+
+----------------------
+-- Lấy doanh thu theo ngày hôm nay và đơn hàng ngày hôm nay
+CREATE VIEW DoanhThuVaDonHangHomNay AS
+SELECT
+    HD.MaHD,
+    HD.NgayLap,
+    SUM(HDCT.SoLuong) AS SoLuongBan,
+    SUM(HDCT.SoLuong * HDCT.GiaTien) AS TongGiaBan,
+    SUM(ISNULL(KM.GiamGia, 0) * HDCT.SoLuong) AS TongGiaGiamGia,
+    SUM(HDCT.SoLuong * HDCT.GiaTien) - SUM(ISNULL(KM.GiamGia, 0) * HDCT.SoLuong) AS DoanhThu
+FROM
+    HoaDon HD
+INNER JOIN
+    HoaDonChiTiet HDCT ON HD.MaHD = HDCT.MaHD
+LEFT JOIN
+    SanPhamChiTiet SPCT ON HDCT.MaSP = SPCT.MaSP
+LEFT JOIN
+    KhuyenMai KM ON SPCT.KhuyenMai = KM.MaKM
+WHERE
+    HD.TrangThai = 1
+    AND CONVERT(DATE, HD.NgayLap) = CONVERT(DATE, GETDATE()) -- Lọc theo ngày hôm nay
+GROUP BY
+    HD.MaHD, HD.NgayLap;
+		--DROP VIEW DoanhThuVaDonHangHomNay
+
+	-------------- Khi tìm
+
+CREATE VIEW DoanhThuKhiTim AS
+SELECT
+    HD.NgayLap AS NgayTN, -- Thêm thông tin Năm vào VIEW
+    SUM(HDCT.SoLuong) AS SoLuongBan,
+    SUM(HDCT.SoLuong * HDCT.GiaTien) AS TongGiaBan,
+    SUM(ISNULL(KM.GiamGia, 0) * HDCT.SoLuong) AS TongGiaGiamGia,
+    SUM(HDCT.SoLuong * HDCT.GiaTien) - SUM(ISNULL(KM.GiamGia, 0) * HDCT.SoLuong) AS DoanhThu
+FROM
+    HoaDon HD
+INNER JOIN
+    HoaDonChiTiet HDCT ON HD.MaHD = HDCT.MaHD
+LEFT JOIN
+    SanPhamChiTiet SPCT ON HDCT.MaSP = SPCT.MaSP
+LEFT JOIN
+    KhuyenMai KM ON SPCT.KhuyenMai = KM.MaKM
+WHERE
+    HD.TrangThai = 1 -- Chỉ lấy các hóa đơn có TrangThai là 1
+GROUP BY
+   HD.NgayLap-- Thêm năm vào phần GROUP BY
+
+   SELECT SoLuongBan  FROM  DoanhThuKhiTim WHERE NgayTN BETWEEN '2023-01-01' AND '2023-11-01'
+
+   SELECT COUNT(*) AS SoHoaDon FROM HoaDon WHERE CONVERT(DATE, NgayLap) = CONVERT(DATE, GETDATE())
+
+   		--DROP VIEW DoanhThuKhiTim
