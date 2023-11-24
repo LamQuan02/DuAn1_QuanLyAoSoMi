@@ -1068,8 +1068,9 @@ public class SanPhamService {
     public void updateSanPhamByMaKM(int loai, int maKM) {
         String updateQuery = "UPDATE SanPhamChiTiet SET KhuyenMai = ? WHERE Loai = ?";
         try ( Connection connection = Getconnection.getConnection();  PreparedStatement preparedStatement = connection.prepareStatement(updateQuery)) {
-            preparedStatement.setInt(1, maKM);
+
             preparedStatement.setInt(2, loai);
+            preparedStatement.setInt(1, maKM);
 
             int rowsAffected = preparedStatement.executeUpdate();
             if (rowsAffected > 0) {

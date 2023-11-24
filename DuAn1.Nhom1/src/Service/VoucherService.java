@@ -98,10 +98,8 @@ public class VoucherService {
     public void updateSanPhamByMaKM(int loai, int maKM) {
         String updateQuery = "UPDATE SanPhamChiTiet SET KhuyenMai = ? WHERE Loai = ?";
         try ( Connection connection = Getconnection.getConnection();  PreparedStatement preparedStatement = connection.prepareStatement(updateQuery)) {
-           
             preparedStatement.setInt(1, maKM);
             preparedStatement.setInt(2, loai);
-
             int rowsAffected = preparedStatement.executeUpdate();
             if (rowsAffected > 0) {
                 System.out.println("Cập nhật dữ liệu thành công!");
@@ -111,5 +109,10 @@ public class VoucherService {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public void updateHoaDonStatus(int maKM, int loai) {
+        String updateSql = "UPDATE SanPhamChiTiet SET Loai = ? WHERE KhuyenMai = ?";
+        Getconnection.update(updateSql, loai, maKM);
     }
 }

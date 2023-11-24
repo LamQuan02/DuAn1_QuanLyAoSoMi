@@ -3,7 +3,7 @@
      USE DuAn111;
      GO
 
- --DROP DATABASE DuAn111
+--DROP DATABASE DuAn111
 
     CREATE TABLE  NhanVien
     (
@@ -155,7 +155,7 @@ VALUES (N'Voucher1', '2023-11-01', '2023-11-30', 10, 1),
        (N'Voucher4', '2023-11-15', '2023-11-30', 5, 1),
        (N'Voucher5', '2023-12-15', '2023-12-31', 25, 1);
 
-drop table KhuyenMai
+--drop table KhuyenMai
 
 INSERT INTO MauSac(TenMau)VALUES(N'Đỏ'),(N'Tím'),(N'Xanh'),(N'Trắng');
 INSERT INTO ChatLieu(TenChatLieu)VALUES('Cotton'),(N'Lụa'),('Bamboo');
@@ -204,7 +204,7 @@ FROM
 JOIN
    SanPhamChiTiet spct ON sp.MaSP = spct.MaSP;
 
-SELECT * FROM SanPham_View;
+--SELECT * FROM SanPham_View;
 
 
 --	drop view GioHang_View1
@@ -227,7 +227,7 @@ JOIN
 LEFT JOIN 
    KhuyenMai km ON spct.KhuyenMai = km.MaKM;
 
-SELECT * FROM GioHang_View;
+--SELECT * FROM GioHang_View;
 
 
 
@@ -266,9 +266,11 @@ GROUP BY
     MONTH(HD.NgayLap)
 
 
-	select * from DoanhThuThang
-	SELECT DoanhThu  FROM DoanhThuThang where Nam = 2023
+	--select * from DoanhThuThang
+	--SELECT DoanhThu  FROM DoanhThuThang where Nam = 2023
 
 	--DROP VIEW DoanhThuThang
 
 	UPDATE SanPhamChiTiet SET KhuyenMai = null WHERE Loai = 5
+
+---	select * from taikhoan
