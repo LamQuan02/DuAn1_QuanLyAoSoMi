@@ -44,12 +44,21 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.awt.Color;
 import java.awt.Component;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.RowFilter;
 import javax.swing.SwingUtilities;
 import javax.swing.table.TableRowSorter;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class BanAoSoMi extends javax.swing.JFrame {
 
@@ -130,6 +139,7 @@ public class BanAoSoMi extends javax.swing.JFrame {
         rdoBangCTDT = new javax.swing.JRadioButton();
         rdoBieuDoCTDT = new javax.swing.JRadioButton();
         jLabel48 = new javax.swing.JLabel();
+        btnIn = new javax.swing.JButton();
         jPanel16 = new javax.swing.JPanel();
         jPanel18 = new javax.swing.JPanel();
         jScrollPane17 = new javax.swing.JScrollPane();
@@ -575,6 +585,13 @@ public class BanAoSoMi extends javax.swing.JFrame {
         jLabel48.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel48.setText("Lựa chọn hiện thị ");
 
+        btnIn.setText("In Excel");
+        btnIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -584,11 +601,12 @@ public class BanAoSoMi extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel46)
                     .addComponent(cbbNamCTDT, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rdoBieuDoCTDT)
                     .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jLabel48, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(rdoBangCTDT, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                        .addComponent(rdoBangCTDT, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(rdoBieuDoCTDT)
+                    .addComponent(btnIn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel6Layout.setVerticalGroup(
@@ -605,6 +623,8 @@ public class BanAoSoMi extends javax.swing.JFrame {
                 .addComponent(rdoBangCTDT)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(rdoBieuDoCTDT)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnIn)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1227,7 +1247,7 @@ public class BanAoSoMi extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane13)
+                    .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 972, Short.MAX_VALUE)
                     .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
@@ -2678,7 +2698,7 @@ public class BanAoSoMi extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel39, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblDTThang, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
+                    .addComponent(lblDTThang, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel15Layout.createSequentialGroup()
                         .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblHOADONTHANG, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -3378,6 +3398,72 @@ public class BanAoSoMi extends javax.swing.JFrame {
     private void txtLOAISPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLOAISPActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtLOAISPActionPerformed
+    
+    
+    private void btnInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInActionPerformed
+       
+        try {
+            XSSFWorkbook workbook = new XSSFWorkbook();
+            XSSFSheet sheet = workbook.createSheet("Danh sách thống kê");
+            XSSFRow row=null;
+            Cell cell = null;
+            row=sheet.createRow(0);
+            cell=row.createCell(1,CellType.STRING);
+            cell.setCellValue("STT");
+            cell=row.createCell(2,CellType.STRING);
+            cell.setCellValue("Tháng");
+             cell=row.createCell(3,CellType.STRING);
+            cell.setCellValue("Số lượng bán");
+             cell=row.createCell(4,CellType.STRING);
+            cell.setCellValue("Tổng giá bán");
+             cell=row.createCell(5,CellType.STRING);
+            cell.setCellValue("Tổng giá giảm");
+             cell=row.createCell(6,CellType.STRING);
+            cell.setCellValue("Doanh thu");
+            for (int i = 0; i < doanhThu.selectAllDT().size(); i++) {
+                row=sheet.createRow(1+i);
+                cell=row.createCell(0,CellType.NUMERIC);
+                row=sheet.createRow(i+1);
+                
+               cell=row.createCell(1,CellType.NUMERIC);
+                row=sheet.createRow(doanhThu.selectAllDT().get(i).getThang());
+                
+                cell=row.createCell(2,CellType.NUMERIC);
+                row=sheet.createRow(doanhThu.selectAllDT().get(i).getSoLuongBan());
+                
+                cell=row.createCell(3,CellType.NUMERIC);
+                row=sheet.createRow(doanhThu.selectAllDT().get(i).getTongGiaBan());
+                
+                cell=row.createCell(4,CellType.NUMERIC);
+                row=sheet.createRow(doanhThu.selectAllDT().get(i).getTongGiaGiam());
+                
+                 cell=row.createCell(5,CellType.NUMERIC);
+                row=sheet.createRow(doanhThu.selectAllDT().get(i).getDoanhThu());
+                
+                
+            }
+            File f = new File("duong path file may ban");
+            try {
+                FileOutputStream fis = new FileOutputStream(f);
+                workbook.write(fis);
+                fis.close();
+            } catch (FileNotFoundException ex) {
+                ex.printStackTrace();
+            }
+            catch(IOException ex)
+            {
+            ex.printStackTrace();
+            }
+            JOptionPane.showMessageDialog(this, "In thành công");
+            
+        
+            
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this,"Lỗi mở file");
+        }
+    }//GEN-LAST:event_btnInActionPerformed
 
     /**
      * @param args the command line arguments
@@ -3408,6 +3494,7 @@ public class BanAoSoMi extends javax.swing.JFrame {
     private javax.swing.JPanel banhang;
     private javax.swing.JButton btnAn;
     private javax.swing.JButton btnHuy;
+    private javax.swing.JButton btnIn;
     private javax.swing.JButton btnSua1;
     private javax.swing.JButton btnSuaTTSP;
     private javax.swing.JButton btnThanhToan;
