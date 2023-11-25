@@ -44,12 +44,21 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.awt.Color;
 import java.awt.Component;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.RowFilter;
 import javax.swing.SwingUtilities;
 import javax.swing.table.TableRowSorter;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class BanAoSoMi extends javax.swing.JFrame {
 
@@ -118,7 +127,7 @@ public class BanAoSoMi extends javax.swing.JFrame {
         mnSP = new javax.swing.JLabel();
         mnHD = new javax.swing.JLabel();
         mnVC = new javax.swing.JLabel();
-        mnTKhoan = new javax.swing.JLabel();
+        mnDoiMatKhau = new javax.swing.JLabel();
         mnThoat = new javax.swing.JLabel();
         mnLS = new javax.swing.JLabel();
         mnNV = new javax.swing.JLabel();
@@ -136,6 +145,7 @@ public class BanAoSoMi extends javax.swing.JFrame {
         rdoBangCTDT = new javax.swing.JRadioButton();
         rdoBieuDoCTDT = new javax.swing.JRadioButton();
         jLabel48 = new javax.swing.JLabel();
+        btnIn = new javax.swing.JButton();
         jPanel16 = new javax.swing.JPanel();
         jPanel18 = new javax.swing.JPanel();
         jScrollPane17 = new javax.swing.JScrollPane();
@@ -426,11 +436,11 @@ public class BanAoSoMi extends javax.swing.JFrame {
             }
         });
 
-        mnTKhoan.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        mnTKhoan.setText("          Đổi mật khẩu");
-        mnTKhoan.addMouseListener(new java.awt.event.MouseAdapter() {
+        mnDoiMatKhau.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        mnDoiMatKhau.setText("          Đổi mật khẩu");
+        mnDoiMatKhau.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mnTKhoanMouseClicked(evt);
+                mnDoiMatKhauMouseClicked(evt);
             }
         });
 
@@ -477,10 +487,14 @@ public class BanAoSoMi extends javax.swing.JFrame {
             .addComponent(mnSP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(mnHD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(mnVC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+<<<<<<< HEAD
             .addComponent(mnTKhoan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(mnNV, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(mnTKhoan1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(mnThoat, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+=======
+            .addComponent(mnDoiMatKhau, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+>>>>>>> 69a2af7ffb5441dbe1a4ed64b9a651c787460456
             .addGroup(menuLayout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(jLabel1)
@@ -507,7 +521,7 @@ public class BanAoSoMi extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(mnTKhoan1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(mnTKhoan, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(mnDoiMatKhau, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(mnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31))
@@ -582,20 +596,41 @@ public class BanAoSoMi extends javax.swing.JFrame {
         jLabel48.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel48.setText("Lựa chọn hiện thị ");
 
+<<<<<<< HEAD
         javax.swing.GroupLayout doanhTHULayout = new javax.swing.GroupLayout(doanhTHU);
         doanhTHU.setLayout(doanhTHULayout);
         doanhTHULayout.setHorizontalGroup(
             doanhTHULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, doanhTHULayout.createSequentialGroup()
+=======
+        btnIn.setText("In Excel");
+        btnIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+>>>>>>> 69a2af7ffb5441dbe1a4ed64b9a651c787460456
                 .addGap(17, 17, 17)
                 .addGroup(doanhTHULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel46)
                     .addComponent(cbbNamCTDT, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                     .addComponent(rdoBieuDoCTDT)
                     .addGroup(doanhTHULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+=======
+                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+>>>>>>> 69a2af7ffb5441dbe1a4ed64b9a651c787460456
                         .addComponent(jLabel48, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(rdoBangCTDT, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                        .addComponent(rdoBangCTDT, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(rdoBieuDoCTDT)
+                    .addComponent(btnIn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         doanhTHULayout.setVerticalGroup(
@@ -612,6 +647,8 @@ public class BanAoSoMi extends javax.swing.JFrame {
                 .addComponent(rdoBangCTDT)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(rdoBieuDoCTDT)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnIn)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1233,8 +1270,13 @@ public class BanAoSoMi extends javax.swing.JFrame {
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
+<<<<<<< HEAD
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane13)
+=======
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 972, Short.MAX_VALUE)
+>>>>>>> 69a2af7ffb5441dbe1a4ed64b9a651c787460456
                     .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(15, 15, 15))
         );
@@ -2666,12 +2708,23 @@ public class BanAoSoMi extends javax.swing.JFrame {
             .addGroup(jPanel15Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
                     .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(lblHOADONTHANG, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblSOHANGTHANG, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE))
                     .addComponent(lblDTThang, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(54, Short.MAX_VALUE))
+=======
+                    .addComponent(jLabel39, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblDTThang, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel15Layout.createSequentialGroup()
+                        .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblHOADONTHANG, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblSOHANGTHANG, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+>>>>>>> 69a2af7ffb5441dbe1a4ed64b9a651c787460456
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2835,9 +2888,9 @@ public class BanAoSoMi extends javax.swing.JFrame {
         lichsu.setVisible(false);
     }//GEN-LAST:event_mnVCMouseClicked
 
-    private void mnTKhoanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnTKhoanMouseClicked
+    private void mnDoiMatKhauMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnDoiMatKhauMouseClicked
         new DoiMatKhauJdialog(this, true).setVisible(true);
-    }//GEN-LAST:event_mnTKhoanMouseClicked
+    }//GEN-LAST:event_mnDoiMatKhauMouseClicked
 
     private void tblTaiKhoanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTaiKhoanMouseClicked
         int row = tblTaiKhoan.getSelectedRow();
@@ -3413,6 +3466,72 @@ public class BanAoSoMi extends javax.swing.JFrame {
     private void txtLOAISPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLOAISPActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtLOAISPActionPerformed
+    
+    
+    private void btnInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInActionPerformed
+       
+        try {
+            XSSFWorkbook workbook = new XSSFWorkbook();
+            XSSFSheet sheet = workbook.createSheet("Danh sách thống kê");
+            XSSFRow row=null;
+            Cell cell = null;
+            row=sheet.createRow(0);
+            cell=row.createCell(1,CellType.STRING);
+            cell.setCellValue("STT");
+            cell=row.createCell(2,CellType.STRING);
+            cell.setCellValue("Tháng");
+             cell=row.createCell(3,CellType.STRING);
+            cell.setCellValue("Số lượng bán");
+             cell=row.createCell(4,CellType.STRING);
+            cell.setCellValue("Tổng giá bán");
+             cell=row.createCell(5,CellType.STRING);
+            cell.setCellValue("Tổng giá giảm");
+             cell=row.createCell(6,CellType.STRING);
+            cell.setCellValue("Doanh thu");
+            for (int i = 0; i < doanhThu.selectAllDT().size(); i++) {
+                row=sheet.createRow(1+i);
+                cell=row.createCell(0,CellType.NUMERIC);
+                row=sheet.createRow(i+1);
+                
+               cell=row.createCell(1,CellType.NUMERIC);
+                row=sheet.createRow(doanhThu.selectAllDT().get(i).getThang());
+                
+                cell=row.createCell(2,CellType.NUMERIC);
+                row=sheet.createRow(doanhThu.selectAllDT().get(i).getSoLuongBan());
+                
+                cell=row.createCell(3,CellType.NUMERIC);
+                row=sheet.createRow(doanhThu.selectAllDT().get(i).getTongGiaBan());
+                
+                cell=row.createCell(4,CellType.NUMERIC);
+                row=sheet.createRow(doanhThu.selectAllDT().get(i).getTongGiaGiam());
+                
+                 cell=row.createCell(5,CellType.NUMERIC);
+                row=sheet.createRow(doanhThu.selectAllDT().get(i).getDoanhThu());
+                
+                
+            }
+            File f = new File("duong path file may ban");
+            try {
+                FileOutputStream fis = new FileOutputStream(f);
+                workbook.write(fis);
+                fis.close();
+            } catch (FileNotFoundException ex) {
+                ex.printStackTrace();
+            }
+            catch(IOException ex)
+            {
+            ex.printStackTrace();
+            }
+            JOptionPane.showMessageDialog(this, "In thành công");
+            
+        
+            
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this,"Lỗi mở file");
+        }
+    }//GEN-LAST:event_btnInActionPerformed
 
     private void cbbLOAITHOIGIANActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbLOAITHOIGIANActionPerformed
         String selectedOption = (String) cbbLOAITHOIGIAN.getSelectedItem();
@@ -3468,6 +3587,7 @@ public class BanAoSoMi extends javax.swing.JFrame {
     private javax.swing.JPanel banhang;
     private javax.swing.JButton btnAn;
     private javax.swing.JButton btnHuy;
+    private javax.swing.JButton btnIn;
     private javax.swing.JButton btnSua1;
     private javax.swing.JButton btnSuaTTSP;
     private javax.swing.JButton btnTIMLOAITIME;
@@ -3620,12 +3740,12 @@ public class BanAoSoMi extends javax.swing.JFrame {
     private javax.swing.JPanel lichsu;
     private javax.swing.JScrollPane mausac;
     private javax.swing.JPanel menu;
+    private javax.swing.JLabel mnDoiMatKhau;
     private javax.swing.JLabel mnHD;
     private javax.swing.JLabel mnLS;
     private javax.swing.JLabel mnNV;
     private javax.swing.JLabel mnSP;
     private javax.swing.JLabel mnTK;
-    private javax.swing.JLabel mnTKhoan;
     private javax.swing.JLabel mnTKhoan1;
     private javax.swing.JLabel mnThoat;
     private javax.swing.JLabel mnVC;
