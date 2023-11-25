@@ -2769,7 +2769,7 @@ public class BanAoSoMi extends javax.swing.JFrame {
                 .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(home, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(home, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         containerLayout.setVerticalGroup(
@@ -3421,9 +3421,9 @@ public class BanAoSoMi extends javax.swing.JFrame {
             ngaybatdau.setVisible(true);
             ngayketthuc.setVisible(true);
             btnTIMLOAITIME.setVisible(true);
-            lblDTNGAY.setText(" ");
-            lblHOADONNgay.setText(" ");
-            lblSOHANGngay.setText(" ");
+            lblDTNGAY.setText(" $");
+            lblHOADONNgay.setText("Số hóa đơn: ");
+            lblSOHANGngay.setText("Số lượng hàng: ");
         } else if (selectedOption.equals("Hôm nay")) {
             ngaybatdau.setVisible(false);
             ngayketthuc.setVisible(false);
@@ -3761,6 +3761,9 @@ public class BanAoSoMi extends javax.swing.JFrame {
         TablekmHD();
         Tablekmsp();
         hienThiDoanhThu();
+        lblDTNGAY.setText(" $");
+        lblHOADONNgay.setText("Số hóa đơn: ");
+        lblSOHANGngay.setText("Số lượng hàng: ");
     }
 /////////////////////////////////////// CAPJ NHẬT COMBOBOX ////////////////////////
 
@@ -5081,14 +5084,14 @@ public class BanAoSoMi extends javax.swing.JFrame {
             tongDoanhThuN += doanhThuN;
         }
         lblDTNGAY.setText(String.valueOf(tongDoanhThuN + " $"));
-        
+
         List<Integer> hdthang = doanhThu.getDONHANGNGAY();
         int tonghdthang = 0;
         for (Integer doanhThuT : hdthang) {
             tonghdthang += doanhThuT;
         }
         lblHOADONNgay.setText(String.valueOf("Số hóa đơn: " + tonghdthang));
-        
+
         List<Integer> ngay2 = doanhThu.getSOLUONGNGAY();
         int tongDoanhThuN2 = 0;
         for (Integer doanhThuN : ngay2) {
