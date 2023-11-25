@@ -8,8 +8,8 @@ public class Getconnection {
     public static Connection getConnection() throws SQLException {
         SQLServerDataSource dataSource = new SQLServerDataSource();
         dataSource.setUser("sa");
-        dataSource.setPassword("140102");
-        dataSource.setEncrypt(Boolean.FALSE);
+        dataSource.setPassword("123456");
+        dataSource.setEncrypt(Boolean.FALSE);;
         dataSource.setServerName("localhost"); // Đặt tên máy chủ SQL Server của bạn ở đây
         dataSource.setPortNumber(1433); // Cổng mặc định cho SQL Server
         dataSource.setDatabaseName("DuAn111");
