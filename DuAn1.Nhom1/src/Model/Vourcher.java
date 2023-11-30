@@ -14,6 +14,14 @@ public class Vourcher {
     public Vourcher() {
     }
 
+    public Vourcher(String TenVoucher, Date NgayBatDau, Date NgayKetThuc, int GiamGia, Boolean TrangThai) {
+        this.TenVoucher = TenVoucher;
+        this.NgayBatDau = NgayBatDau;
+        this.NgayKetThuc = NgayKetThuc;
+        this.GiamGia = GiamGia;
+        this.TrangThai = TrangThai;
+    }
+
     public Vourcher(int MaVoucher, String TenVoucher, Date NgayBatDau, Date NgayKetThuc, int GiamGia, Boolean TrangThai) {
         this.MaVoucher = MaVoucher;
         this.TenVoucher = TenVoucher;

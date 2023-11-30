@@ -20,7 +20,6 @@ public class NhanVien {
         this.DiaChi = DiaChi;
         this.Email = Email;
     }
-
     public String getMaNV() {
         return MaNV;
     }
